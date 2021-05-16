@@ -6,12 +6,13 @@ const errorHandler=require('./handlers/500');
 const notFoundHandler=require('./handlers/404');
 const users=require('./auth/signInUp');
 
-
+const cors=require('cors');
 const app=express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+app.use(cors());
 app.use(users);
 
 //add routes 
