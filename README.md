@@ -10,7 +10,7 @@
 
 - [PR link](https://github.com/areenjaradat/basic-auth/pulls)
 
-- [main Deployed heroku](https://areen-basic-auth.herokuapp.com)
+- [main Deployed heroku](https://areenjaradat-basic-auth.herokuapp.com)
 
 ### Setup
 
