@@ -23,19 +23,21 @@ async function signUp(req,res){
 }
 
 async function signIn(req,res){
-  try{
-    const user=await UserModel.findOne(({username: req.user.username}));
-    const valid = await bcrypt.compare(req.user.password, user.password);
-    console.log('valid : ', valid);
+
+  const user=await UserModel.findOne(({username: req.user.username}));
+  const valid = await bcrypt.compare(req.user.password, user.password);
+  console.log('valid : ', valid);
+  if(user ){
     if (valid) {
       res.status(200).json(user);
       console.log('user',user);
     } else {
       res.status(403).send('Wrong username or password');
     }
-  }catch(error) {
-    console.log(error);
-    res.status(403).send(error);
+  }else{
+    res.status(403).send('Wrong username or password');
   }
+    
+
 }
 module.exports = router;
